@@ -16,3 +16,6 @@ with a bunch of sub-folders.
 so just pass the top level directory to supermemo2anki:
 
 `python2.7 supermemo2anki path/to/bkup`
+
+then import the resulting file (`anki_cards_*.txt`) into Anki. If you leave the exported file in the cwd, the old cards
+won't be reimported the next time you run this tool.
