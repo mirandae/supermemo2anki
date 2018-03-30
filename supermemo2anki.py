@@ -7,14 +7,10 @@ DEFAULT_NUM_ARGS = 2
 FILES_TO_IGNORE = [".DS_Store"]
 
 USAGE = "Usage: supermemo2anki path/to/bkup_folder"
-# PATTERN = ".*<SPAN class=clozed>.*<\/SPAN>.*"
 CLOZE_PATTERN = '.*(?<=<SPAN class=clozed>)(.*)(<\/SPAN>).*'
 TAG_STRIPPER_PATTERN = '<[^<]+?>'
-
 ANKI_BACKUPS = 'anki_cards_{}.txt'
 
-# PATTERN = "clozed"
-# PATTERN = "<SPAN class=clozed>Halting failures</SPAN>"
 
 def process_folder(foldername):
     regex = re.compile(CLOZE_PATTERN)
@@ -64,13 +60,9 @@ def extract_cloze_card(filename, regex):
         content = f.readlines()
         content = [x.strip() for x in content]
         for line in content:
-            # print "line: "
-            # print line
-            # print regex.match(line)
             if regex.match(line) is not None:
                 replacement_word = remove_html_tags(re.search(CLOZE_PATTERN, line).group(1))
                 subbed =  remove_html_tags(re.sub(re.search(CLOZE_PATTERN, line).group(1), '{{c1::' + replacement_word + '}} ', line)) + '\n'
-                # print subbed
                 cards.append(subbed)
     return cards
 
