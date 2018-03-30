@@ -1,7 +1,11 @@
 
 
-Usage:
+SuperMemo is a cool Windows software that I haven't managed to get working with Wine.
+ Additionally, I want to be able to access the data from iOS/Android, so decided it'd be easier to get working with Anki, which supports a lot of platforms.
+ The export feature of SuperMemo is pretty closed so I just wrote `supermemo2anki` to change to Anki-friendly format -- specifically for cloze cards. 
 
+
+##Usage:##
 
 SuperMemo's backup format is a folder like:
 
@@ -9,11 +13,6 @@ SuperMemo's backup format is a folder like:
 
 with a bunch of sub-folders.
 
-so just run:
+so just pass the top level directory to supermemo2anki:
 
-supermemo2anki absolute-path/to/(((Backup of my_collection created on 2018-03-28 19-34-30)))
-
-uh but rename it so I don't have to deal with parentheses:
-
-
-supermemo2anki path/to/bkup
+`python2.7 supermemo2anki path/to/bkup`
