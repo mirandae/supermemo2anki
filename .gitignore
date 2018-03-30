@@ -1,0 +1,4 @@
+.idea
+*.local
+anki_cards_*.txt
+*~
